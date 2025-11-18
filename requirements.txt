@@ -1,0 +1,5 @@
+pytest
+# Optional runtime dependencies (not required for tests)
+pyttsx3
+psutil
+ollama
