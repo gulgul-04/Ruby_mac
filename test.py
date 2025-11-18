@@ -78,16 +78,16 @@ class TestRubyTools(unittest.TestCase):
         mock_speak.assert_called()
 
     @patch('builtins.input', side_effect=['testfile', 'y'])
-    @patch('ruby_assistant.os.remove')
-    @patch('ruby_assistant.ruby_speak')
+    @patch('ruby_tools.os.remove')
+    @patch('ruby_tools.ruby_speak')
     def test_del_files_confirmed(self, mock_speak, mock_remove, mock_input):
         del_files()
         mock_remove.assert_called_once()
         mock_speak.assert_any_call("The file has been deleted.")
 
     @patch('builtins.input', side_effect=['testfile', 'n'])
-    @patch('ruby_assistant.os.remove')
-    @patch('ruby_assistant.ruby_speak')
+    @patch('ruby_tools.os.remove')
+    @patch('ruby_tools.ruby_speak')
     def test_del_files_not_confirmed(self, mock_speak, mock_remove, mock_input):
         del_files()
         mock_remove.assert_not_called()
